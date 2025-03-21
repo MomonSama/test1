@@ -160,7 +160,7 @@ export default function MatchResults({ matches }: MatchResultsProps) {
                       <div data-team="1">
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-black text-sm font-medium">{match.teams.faction1.name}</span>
-                          <span className="text-xs text-gray-600">Avg: {match.teams.faction1.stats.skillLevel.average}</span>
+                          <span className="text-xs text-gray-600">Avg ELO: {Math.round(match.teams.faction1.roster.reduce((sum, player) => sum + player.elo, 0) / match.teams.faction1.roster.length)}</span>
                         </div>
                         
                         <ul className="space-y-1.5">
@@ -179,7 +179,7 @@ export default function MatchResults({ matches }: MatchResultsProps) {
                       <div data-team="2">
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-black text-sm font-medium">{match.teams.faction2.name}</span>
-                          <span className="text-xs text-gray-600">Avg: {match.teams.faction2.stats.skillLevel.average}</span>
+                          <span className="text-xs text-gray-600">Avg ELO: {Math.round(match.teams.faction2.roster.reduce((sum, player) => sum + player.elo, 0) / match.teams.faction2.roster.length)}</span>
                         </div>
                         
                         <ul className="space-y-1.5">
