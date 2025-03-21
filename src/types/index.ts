@@ -3,6 +3,7 @@
  */
 
 export interface Match {
+  id: string;
   game: string;
   region: string;
   status: 'LIVE' | 'UPCOMING' | string;
@@ -10,6 +11,18 @@ export interface Match {
   teams: {
     faction1: Team;
     faction2: Team;
+  };
+  results?: MatchResults;
+}
+
+export interface MatchResults {
+  factions: {
+    faction1: {
+      score: number;
+    };
+    faction2: {
+      score: number;
+    };
   };
 }
 
