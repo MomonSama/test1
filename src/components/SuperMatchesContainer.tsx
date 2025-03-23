@@ -36,8 +36,6 @@ export default function SuperMatchesContainer() {
           <p className="text-gray-700">No super matches with level 10 players found at the moment.</p>
         </div>
       )}
-      
-      {/* We don't need a separate loading indicator here as it's already shown in the status indicator above */}
     </div>
   );
 }

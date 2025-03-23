@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
 ---
 <!doctype html>
 <html lang="en">
@@ -8,9 +10,13 @@ import "../styles/global.css";
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>FACEIT Super Matches</title>
+		<title>?</title>
 	</head>
-	<body>
-		<slot />
+	<body class="min-h-screen flex flex-col">
+		<Navbar />
+		<div class="flex-grow">
+			<slot />
+		</div>
+		<Footer />
 	</body>
 </html>
