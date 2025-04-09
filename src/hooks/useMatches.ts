@@ -14,9 +14,9 @@ export function useMatches(): UseMatchesResult {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [lastRefreshed, setLastRefreshed] = useState<Date | null>(null);
-  const [nextRefreshIn, setNextRefreshIn] = useState<number>(60);
+  const [nextRefreshIn, setNextRefreshIn] = useState<number>(120);
   
-  const refreshInterval = 60;
+  const refreshInterval = 120;
 
   const fetchMatches = async () => {
     setIsLoading(true);
