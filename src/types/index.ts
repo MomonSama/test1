@@ -53,6 +53,7 @@ export interface Team {
 
 export interface Player {
   nickname: string;
+  id: string;
   gameSkillLevel?: number;
   elo: number;
 }
