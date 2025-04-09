@@ -5,12 +5,18 @@ interface UseMatchesResult {
   matches: Match[];
   isLoading: boolean;
   error: string | null;
+  lastRefreshed: Date | null;
+  nextRefreshIn: number;
 }
 
 export function useMatches(): UseMatchesResult {
   const [matches, setMatches] = useState<Match[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [lastRefreshed, setLastRefreshed] = useState<Date | null>(null);
+  const [nextRefreshIn, setNextRefreshIn] = useState<number>(60);
+  
+  const refreshInterval = 60;
 
   const fetchMatches = async () => {
     setIsLoading(true);
@@ -25,6 +31,8 @@ export function useMatches(): UseMatchesResult {
       const data = await response.json() as Match[];
       
       setMatches(data);
+      setLastRefreshed(new Date());
+      setNextRefreshIn(refreshInterval);
     } catch (err) {
       console.error('Error fetching matches:', err);
       setError(err instanceof Error ? err.message : String(err));
@@ -34,8 +42,19 @@ export function useMatches(): UseMatchesResult {
   };
 
   useEffect(() => {
+    if (nextRefreshIn <= 0) return;
+    
+    const timer = setInterval(() => {
+      setNextRefreshIn(prev => Math.max(0, prev - 1));
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, [nextRefreshIn]);
+
+  useEffect(() => {
     fetchMatches();
-        const intervalId = setInterval(fetchMatches, 60000);
+    
+    const intervalId = setInterval(fetchMatches, refreshInterval * 1000);
     
     return () => clearInterval(intervalId);
   }, []);
@@ -43,6 +62,8 @@ export function useMatches(): UseMatchesResult {
   return {
     matches,
     isLoading,
-    error
+    error,
+    lastRefreshed,
+    nextRefreshIn
   };
 }
