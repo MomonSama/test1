@@ -11,6 +11,7 @@ interface UseMatchesResult {
 
 const playerNicknameOverrides: Record<string, string> = {
   "702c9dd5-c84d-42de-942e-58e921fd34d9": "drop",
+  "64858d84-258f-4e68-961d-e0ee42b83ce9": "rainny"
 };
 
 export function useMatches(): UseMatchesResult {
