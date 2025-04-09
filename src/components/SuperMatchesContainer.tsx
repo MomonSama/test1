@@ -2,16 +2,11 @@ import MatchResults from './MatchResults';
 import { useMatches } from '../hooks/useMatches';
 
 export default function SuperMatchesContainer() {
-  // Use the custom hook to manage matches data and filtering
   const { 
-    filteredMatches: superMatches, 
+    matches: superMatches, 
     isLoading, 
     error
-  } = useMatches({ 
-    filterSuperMatches: true
-  });
-  
-
+  } = useMatches();
 
   if (error) {
     return (
@@ -33,7 +28,7 @@ export default function SuperMatchesContainer() {
         </>
       ) : (
         <div className="bg-white p-6 rounded-md text-center border border-gray-200">
-          <p className="text-gray-700">No super matches with level 10 players found at the moment.</p>
+          <p className="text-gray-700">No super matches found at the moment.</p>
         </div>
       )}
     </div>

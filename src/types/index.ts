@@ -1,7 +1,3 @@
-/**
- * TypeScript interfaces for FACEIT match data
- */
-
 export interface Match {
   id: string;
   game: string;
@@ -12,7 +8,25 @@ export interface Match {
     faction1: Team;
     faction2: Team;
   };
-  results?: MatchResults;
+  results?: MatchResult[];
+  createdAt?: string;
+}
+
+export interface MatchResult {
+  ascScore: boolean;
+  partial: boolean;
+  factions: {
+    faction1: {
+      score: number;
+    };
+    faction2: {
+      score: number;
+    };
+  };
+  disqualified?: any[];
+  voteKicked?: any[];
+  leavers?: any[];
+  afk?: any[];
 }
 
 export interface MatchResults {
@@ -28,17 +42,25 @@ export interface MatchResults {
 
 export interface Team {
   name: string;
+  leader?: string;
+  score?: number;
   roster: Player[];
   stats: {
     skillLevel: SkillLevel;
+    winProbability?: number;
   };
 }
 
 export interface Player {
   nickname: string;
+  gameSkillLevel?: number;
   elo: number;
 }
 
 export interface SkillLevel {
   average: number;
+  range?: {
+    min: number;
+    max: number;
+  };
 }
