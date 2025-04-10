@@ -28,7 +28,7 @@ export function useMatches(): UseMatchesResult {
     setError(null);
 
     try {
-      const response = await fetch(`https://old-sun-d86b.lipt.workers.dev/`);
+      const response = await fetch(`https://super-matches-api.maliagapacheco.workers.dev/`);
 
       if (!response.ok) {
         throw new Error(`Failed to fetch matches: ${response.status}`);
