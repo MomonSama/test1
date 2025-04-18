@@ -4,6 +4,6 @@ export default {
   theme: {
     extend: {},
   },
-  darkMode: 'class', // Enable dark mode using class
+  html class="dark", // Enable dark mode using class
   plugins: [require('@midudev/tailwind-animations')],
 };
