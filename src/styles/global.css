@@ -1,1 +1,14 @@
 @import "tailwindcss";
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Example components */
+header.dark-mode {
+  background-color: #1e1e1e;
+}
+
+a.dark-mode {
+  color: #bb86fc;
+}
