@@ -20,19 +20,6 @@ import Navbar from "../components/Navbar.astro";
     <slot />
   </div>
 
-  // Add this script to your main layout file or HTML
-const toggleDarkMode = () => {
-  const htmlElement = document.documentElement;
-  const isDarkMode = htmlElement.classList.contains('dark');
-  htmlElement.classList.toggle('dark', !isDarkMode);
-  localStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
-};
-
-// Persist theme on page load
-if (localStorage.getItem('theme') === 'dark') {
-  document.documentElement.classList.add('dark');
-}
-
   <Footer />
 </body>
 </html>
