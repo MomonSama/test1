@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-
 <Layout>
 	<div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
 		<div class="max-w-5xl mx-auto px-4 py-16">
@@ -45,4 +44,10 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</div>
 	</div>
-</Layout>
+	
+	<!-- Add the Dark Mode Toggle Script -->
+	<script>
+		// Check for saved user preference
+		const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const savedTheme =
+
