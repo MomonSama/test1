@@ -46,8 +46,18 @@ import Layout from '../layouts/Layout.astro';
 	</div>
 	
 	<!-- Add the Dark Mode Toggle Script -->
-	<script>
-		// Check for saved user preference
-		const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		const savedTheme =
-
+		<script>
+  const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme) {
+    document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+  } else if (userPrefersDark) {
+    document.documentElement.classList.add('dark');
+  }
+
+  function toggleDarkMode() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+</script>
