@@ -4,7 +4,7 @@
  */
 
 const FACEIT_API_URL = 'https://open.faceit.com/data/v4';
-const API_KEY = '31a0f009-6cde-4e0d-98ce-4c10b21e2714';
+const API_KEY = 'd5d80764-34dd-493a-99e7-9cff9e50797f';
 
 const headers = {
   'Authorization': `Bearer ${API_KEY}`,
