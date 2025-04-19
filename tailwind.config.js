@@ -1,9 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  darkMode: 'class', // Enable dark mode using the 'class' strategy
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+module.exports = {
+  darkMode: 'class', // or 'media' for system preference
   theme: {
     extend: {},
   },
-  plugins: [require('@midudev/tailwind-animations')],
-};
+  plugins: [],
+}
