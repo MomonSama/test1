@@ -21,7 +21,7 @@ export function useMatches(): UseMatchesResult {
   const [lastRefreshed, setLastRefreshed] = useState<Date | null>(null);
   const [nextRefreshIn, setNextRefreshIn] = useState<number>(120);
 
-  const refreshInterval = 120;
+  const refreshInterval = 30;
 
   const fetchMatches = async () => {
     setIsLoading(true);
